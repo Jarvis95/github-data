@@ -15,6 +15,13 @@ jobs:
           distribution: 'oracle'
           java-version: '21'
           cache: 'maven'
+      - name: Cache local Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+#          restore-keys: |
+#        ${{ runner.os }}-maven-
       - name: install Dependencies
         run: mvn clean install
       - name: Test Code
@@ -56,6 +63,13 @@ jobs:
           distribution: 'oracle'
           java-version: '21'
           cache: 'maven'
+      - name: Cache local Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+#          restore-keys: |
+#        ${{ runner.os }}-maven-
       - name: install Dependencies
         run: mvn clean install
       - name: get Build Artifacts
