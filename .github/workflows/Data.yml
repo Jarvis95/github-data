@@ -1,0 +1,37 @@
+name: Deploy Website
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Codebase
+        uses: actions/checkout@v5
+      - name: Install java
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'oracle'
+          java-version: '21'
+          cache: 'maven'
+      - name: install Dependencies
+        run: mvn clean install
+      - name: Test Code
+        run: mvn test
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Codebase for Deployment
+        uses: actions/checkout@v5
+      - name: Install java
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'oracle'
+          java-version: '21'
+          cache: 'maven'
+      - name: install Dependencies
+        run: mvn clean install
+      - name: Deploy to Server
+        run: echo "Deploying to server..."
