@@ -23,7 +23,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     outputs:
-      script-file: ${{ steps.publish_id.outputs.script-file }}
+      script-file: ${{ steps.publish.outputs.script-file }}
     steps:
       - name: Get Codebase for Build
         uses: actions/checkout@v5
@@ -36,8 +36,8 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
       - name: Publish generate classes file name
-        id: publish_id
-        run: find target/classes/com/example/github/*.class -type f -execdir echo 'script-file = {}' >> $GITHUB_OUTPUT ';'
+        id: publish
+        run: find target/github-data.jar -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
