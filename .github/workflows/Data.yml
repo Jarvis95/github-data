@@ -33,8 +33,8 @@ jobs:
           cache: 'maven'
       - name: Build with Maven
         run: mvn clean package
-      -name: Upload Build Artifacts
-      - uses: actions/upload-artifact@v4
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: build-jar
           path: target/github-data.jar
