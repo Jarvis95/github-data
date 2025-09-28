@@ -8,6 +8,7 @@ public class GithubDataApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GithubDataApplication.class, args);
+        System.out.println("Hello World :: Github Data Application");
 	}
 
 }
