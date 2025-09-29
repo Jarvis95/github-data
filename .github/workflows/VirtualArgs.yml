@@ -63,11 +63,5 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
       - name: install Dependencies
         run: mvn clean install
-      - name: get Build Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-jar
-      - name: Output Artifacts
-        run: ls
       - name: Deploy to Server
         run: echo "Deploying to server..."
