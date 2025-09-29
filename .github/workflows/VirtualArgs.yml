@@ -7,7 +7,7 @@ jobs:
   test:
     env:
       COUNT: 100
-      SECRET: ${{secrets:SAMPLE_SECRETE}}
+      SECRET: ${{secrets.SAMPLE_SECRETE}}
     runs-on: ubuntu-latest
     steps:
       - name: Get Codebase
