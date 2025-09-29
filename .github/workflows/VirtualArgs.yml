@@ -6,7 +6,6 @@ on:
 jobs:
   test:
     env:
-      SECRET:${{secrets.SAMPLE_SECRETE}}
       COUNT: 100
     runs-on: ubuntu-latest
     steps:
