@@ -19,6 +19,8 @@ class GithubDataApplicationTests {
     @Test
     void testVM(){
         String s = System.getenv("COUNT");
+        String secret = System.getenv("SECRET");
+        System.out.println("VM Secret : " +secret);
         System.out.println("VM count : " +s);
         System.out.println("VM args : " +appName);
         Assertions.assertEquals("5", appName);
