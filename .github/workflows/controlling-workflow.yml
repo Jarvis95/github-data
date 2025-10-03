@@ -78,3 +78,11 @@ jobs:
         run: ls
       - name: Deploy to Server
         run: echo "Deploying to server..."
+  report:
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+        - name: Get Codebase for Report
+          run: |
+            echo "Something went wrong, please check the logs."
+            echo "${{github}}"
