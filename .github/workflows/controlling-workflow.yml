@@ -23,8 +23,10 @@ jobs:
       - name: install Dependencies
         run: mvn clean install
       - name: Test Code
+        id: run-test
         run: mvn test
       - name: Upload Test Report
+        if: steps.run-test.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: test-report
