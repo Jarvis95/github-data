@@ -16,14 +16,20 @@ class GithubDataApplicationTests {
     @Value("${sample.count}")
     private String appName;
 
+   // @Test
+//    void testVM(){
+//        String s = System.getenv("COUNT");
+//        String secret = System.getenv("SECRET");
+//        System.out.println("VM Secret : " +secret);
+//        System.out.println("VM count : " +s);
+//        System.out.println("VM args : " +appName);
+//        Assertions.assertEquals("5", appName);
+//    }
+
     @Test
-    void testVM(){
-        String s = System.getenv("COUNT");
-        String secret = System.getenv("SECRET");
-        System.out.println("VM Secret : " +secret);
-        System.out.println("VM count : " +s);
-        System.out.println("VM args : " +appName);
-        Assertions.assertEquals("5", appName);
+    void testVMService(){
+
+        Assertions.assertEquals("5", "4");
     }
 
 }
