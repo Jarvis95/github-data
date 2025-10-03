@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Controlled Deployment Workflow
 on:
   push:
     branches:
